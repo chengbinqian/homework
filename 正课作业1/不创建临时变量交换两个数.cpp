@@ -397,22 +397,113 @@
 //	return 0;
 //}
 
+//#include<stdio.h>
+//#include<stdlib.h>
+//
+//int compare(const void* e1, const void* e2)
+//{
+//	return ((*(int*)e1) - (*(int*)e2));
+//}
+//
+//int main() {
+//	int arr[] = { 1, 5, 2, 4, 3 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	qsort(arr,sz, sizeof(arr[0]),compare );
+//	for (int i = 0; i < sz; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//	
+//	return 0;
+//}
+//#define _CRT_SECURE_NO_WARNINGS 1
+//#include<stdio.h>
+//#include<string.h>
+//
+//int findRound(const char* src, char * find)
+//{
+//	char temp[256] = { 0 };
+//	strcpy(temp, src);
+//	strcat(temp, src);
+//	return strstr(temp, find) != NULL;
+//}
+//	int main() {
+//	char src[] = { "abcdef" };
+//	char src1[] = { "ab" };
+//	int ret = findRound(src, src1);
+//	if (ret != NULL)
+//	{
+//		printf("’“µ√µΩ\n");
+//	}
+//	return 0;
+//}
+
+
+//#define _CRT_SECURE_NO_WARNINGS 1
+//#include<stdio.h>
+//#include<string.h>
+//
+//void leftround(char* src, int time)
+//{
+//	int i, j, tmp;
+//	int len = strlen(src);
+//	time %= len;
+//	for (i = 0; i < time; i++)
+//	{
+//		tmp = src[0];
+//		for (j = 0; j < len - 1; j++)
+//		{
+//			src[j] = src[j + 1];
+//		}
+//		src[j] = tmp;
+//	}
+//}
+//
+//int main()
+//{
+//	char src[] = { "abcdef" };
+//	int time = 0;
+//	scanf("%d", &time);
+//	leftround(src, time);
+//	printf("%s", src);
+//	return 0;
+//}
+
+
+
 #include<stdio.h>
-#include<stdlib.h>
 
-int compare(const void* e1, const void* e2)
+int findnum(int a[][3], int x, int y, int f)
 {
-	return ((*(int*)e1) - (*(int*)e2));
-}
-
-int main() {
-	int arr[] = { 1, 5, 2, 4, 3 };
-	int sz = sizeof(arr) / sizeof(arr[0]);
-	qsort(arr,sz, sizeof(arr[0]),compare );
-	for (int i = 0; i < sz; i++)
+	int i = 0, j = x - 1;
+	while (i >= 0 && i < y)
 	{
-		printf("%d ", arr[i]);
+		if (a[i][j] < f)
+		{
+			i++;
+		}
+		else if (a[i][j] >f)
+		{
+			j--;
+		}
+	else
+	{
+		return 1;
 	}
-	
+			
+	}
 	return 0;
+}
+int main() {
+	int a[][3] = { { 1, 3, 5 }, { 3, 5, 7 } ,{5, 7, 9} };
+	if (findnum(a,3, 3, 2))
+	{
+		printf("it  has been found\n");
+	}
+	else
+	{
+		printf("it hasn't been found\n");
+	}
+	return 0;
+
 }
